@@ -35,7 +35,8 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pages[_currentIndex],
+      resizeToAvoidBottomInset: true,
+      body: SafeArea(child: _pages[_currentIndex]),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         selectedItemColor: const Color(0xFFFFC107),
@@ -54,7 +55,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
               backgroundColor: const Color(0xFFFFC107),
               onPressed: () => showModalBottomSheet(
                 context: context,
-                builder: (_) => const AddTaskBottomSheet(),
+                builder: (_) => const AddTaskScreen(),
               ),
               child: const Icon(Icons.add, color: Colors.black87),
             )
